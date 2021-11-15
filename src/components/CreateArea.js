@@ -43,7 +43,7 @@ const CreateArea = (props) => {
           rows="3"
           value={input.content}
         />
-        {props.error && <small>{props.error}</small>}
+        {props.error && <small style={{ color: "red" }}>{props.error}</small>}
         <button type="submit">Add</button>
       </form>
     </div>

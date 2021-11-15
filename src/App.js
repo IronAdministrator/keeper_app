@@ -33,6 +33,7 @@ const App = () => {
     setNotes((prevNotes) => {
       return [input, ...prevNotes];
     });
+    setError(null);
     console.log(input);
   };
 

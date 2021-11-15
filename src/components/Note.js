@@ -11,7 +11,7 @@ function Note(props) {
           props.onDelete(props.id);
         }}
       >
-        DELETE
+        X
       </button>
     </div>
   );
