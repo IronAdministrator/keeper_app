@@ -5,6 +5,8 @@ import Note from "./components/Note";
 import CreateArea from "./components/CreateArea";
 
 const App = () => {
+  // creating error state:
+  const [error, setError] = useState(null);
   // creating state to save the input value to an array:
   const [notes, setNotes] = useState([]);
 
@@ -24,6 +26,10 @@ const App = () => {
 
   // [1]getting hold of "input" value from "CreateArea.js" and [2]adding new notes to an array of notes with previous values:
   const addNote = (input) => {
+    if (input.title.length < 3 && input.content.length < 3) {
+      setError("Please add either Title or Content ot save your note...");
+      return false;
+    }
     setNotes((prevNotes) => {
       return [input, ...prevNotes];
     });
@@ -44,7 +50,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <CreateArea onAdd={addNote} />
+      <CreateArea onAdd={addNote} error={error} />
 
       {
         // mapping through the array of notes and adding new note to the list:
