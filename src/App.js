@@ -33,9 +33,11 @@ const App = () => {
   // [1]getting hold of "onDelete" prop and receiving "id" with it from "Note.js" [2]returning only prevNotes with index !== id:
   const deleteNote = (id) => {
     return setNotes((prevNotes) => {
-      return prevNotes.filter((note, index) => {
-        return index !== id;
-      });
+      if (window.confirm("Do you want to delete your note permanently?")) {
+        return prevNotes.filter((note, index) => {
+          return index !== id;
+        });
+      }
     });
   };
 
