@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AddIcon from "@mui/icons-material/Add";
 
 const CreateArea = (props) => {
   // creating state for content expansion:
@@ -53,7 +54,11 @@ const CreateArea = (props) => {
           value={input.content}
         />
         {props.error && <small style={{ color: "red" }}>{props.error}</small>}
-        {isExpanded && <button type="submit">Add</button>}
+        {isExpanded && (
+          <button type="submit">
+            <AddIcon />
+          </button>
+        )}
       </form>
     </div>
   );

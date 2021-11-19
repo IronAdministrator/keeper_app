@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
 function Note(props) {
   return (
@@ -11,7 +12,7 @@ function Note(props) {
           props.onDelete(props.id);
         }}
       >
-        X
+        <DeleteOutlinedIcon />
       </button>
     </div>
   );
