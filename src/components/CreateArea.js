@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 const CreateArea = (props) => {
+  // creating state for content expansion:
+  const [isExpanded, setIsExpanded] = useState(false);
   // creating "state" to save input:
   const [input, setInput] = useState({
     title: "",
@@ -20,6 +22,10 @@ const CreateArea = (props) => {
     });
   };
 
+  const expanded = () => {
+    setIsExpanded(true);
+  };
+
   return (
     <div>
       <form
@@ -30,21 +36,24 @@ const CreateArea = (props) => {
           setInput({ title: "", content: "" });
         }}
       >
-        <input
-          onChange={handleChange}
-          name="title"
-          placeholder="Title"
-          value={input.title}
-        />
+        {isExpanded && (
+          <input
+            onChange={handleChange}
+            name="title"
+            placeholder="Title"
+            value={input.title}
+          />
+        )}
         <textarea
+          onClick={expanded}
           onChange={handleChange}
           name="content"
           placeholder="Take a note..."
-          rows="3"
+          rows={isExpanded ? "3" : "1"}
           value={input.content}
         />
         {props.error && <small style={{ color: "red" }}>{props.error}</small>}
-        <button type="submit">Add</button>
+        {isExpanded && <button type="submit">Add</button>}
       </form>
     </div>
   );
