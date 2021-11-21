@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./CreateArea.css";
 import AddIcon from "@mui/icons-material/Add";
 
 const CreateArea = (props) => {

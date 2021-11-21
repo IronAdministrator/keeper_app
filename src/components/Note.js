@@ -1,4 +1,5 @@
 import React from "react";
+import "./Note.css";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
 function Note(props) {
